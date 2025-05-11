@@ -1,23 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Routes, Route } from "react-router-dom";
+import {About,Careers,Home,} from "./routes";
+import {Navbar} from './Navbar';
 
-function App() {
+export const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        
+        <h1>React GitHub Pages Example</h1>
+        <p>A demonstration of deploying React apps to GitHub Pages</p>
+        <Navbar />
+        <div style={{ padding: "20px" }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/careers" element={<Careers />} />
+          </Routes>
+        </div>
       </header>
     </div>
   );
